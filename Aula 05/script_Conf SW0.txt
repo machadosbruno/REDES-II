@@ -1,0 +1,40 @@
+enable
+configure terminal
+
+vlan 10
+name Corpo_Docente
+exit
+vlan 20
+name Alunos
+exit
+vlan 30
+name Convidados
+exit
+
+interface Fa0/2
+switchport mode access 
+switchport access vlan 10
+exit
+
+interface Fa0/11
+switchport mode access 
+switchport access vlan 10
+exit
+
+interface Fa0/18
+switchport mode access 
+switchport access vlan 20
+exit
+
+interface Fa0/6
+switchport mode access 
+switchport access vlan 30
+exit
+
+interface Fa0/1
+switchport mode trunk 
+switchport trunk allowed vlan 10,20,30
+exit
+
+end
+exit

@@ -1,0 +1,15 @@
+enable
+configure terminal
+interface f0/11
+switchport mode access
+switchport access vlan 10
+
+
+enable
+configure terminal
+interface f0/18
+switchport mode access
+switchport access vlan 20
+interface f0/06
+switchport mode access
+switchport access vlan 30

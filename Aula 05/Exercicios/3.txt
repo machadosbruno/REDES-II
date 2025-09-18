@@ -1,0 +1,25 @@
+vlan 10
+name Operations
+vlan 20
+name Parking_Lot
+vlan 99
+name Management
+vlan 1000
+name Native
+end
+
+interface f0/18
+switchport mode access
+switchport access vlan 10
+
+interface vlan 1
+no ip address
+interface vlan 99
+ip address 192.168.1.12 255.255.255.0
+end
+
+
+interface range f0/11-24
+switchport mode access
+switchport access vlan 99
+end

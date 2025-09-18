@@ -1,0 +1,45 @@
+enable
+configure terminal
+hostname S2
+enable secret class
+line console 0
+password cisco
+login
+exit
+line vty 0 15
+password cisco
+login
+exit
+
+
+service password-encryption
+banner motd #
+Enter TEXT message.  End with the character '#'.
+
+*****************************************************************
+* *
+* ACESSO RESTRITO A PESSOAL AUTORIZADO              *
+* *
+* Qualquer acesso nao autorizado a este sistema e proibido    *
+* e sera monitorado.                                          *
+* *
+*****************************************************************
+
+#
+
+
+
+interface vlan 1
+ip address 192.168.1.11 255.255.255.0
+no shutdown
+exit
+
+interface range fa0/2-5, fa0/7-24, gig0/1-2
+shutdown
+
+exit
+
+clock timezone BRT -3 0
+exit
+
+copy running-config startup-config
